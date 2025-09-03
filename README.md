@@ -57,8 +57,5 @@ INTERN/
 - HTML5, CSS3, JavaScript (no framework)
 - Font Awesome for icons
 
-## Notes
-- Replace placeholder contact details and prices with your real data as needed.
-- Ensure images exist in `images/` and `images/gallery/` for the gallery and backgrounds.
 
 
