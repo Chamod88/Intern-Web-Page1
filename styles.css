@@ -1,0 +1,650 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 1rem 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #d4af37;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #d4af37;
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section - WITH IMAGE SUPPORT */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('images/hero-bg.jpg');
+    /* Fallback gradient if image doesn't load */
+    background-color: #001122;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative; /* contain ::before overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Fallback hero background if no image */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23001122" width="1200" height="800"/><circle fill="%23003366" cx="200" cy="150" r="80"/><circle fill="%23004488" cx="800" cy="200" r="60"/><circle fill="%230066aa" cx="1000" cy="400" r="100"/><rect fill="%23ffffff" x="100" y="600" width="1000" height="200" opacity="0.1"/></svg>');
+    z-index: -1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #d4af37;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background: #b8941f;
+    transform: translateY(-2px);
+}
+
+/* Section Styles */
+.section {
+    padding: 5rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+/* About Section - WITH IMAGE SUPPORT */
+.about {
+    background: #f8f9fa;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.about-image {
+    position: relative;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.15));
+}
+
+.about-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.6rem 0.8rem;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+/* Fallback for about image */
+/* Fallback gradient removed since we now render an <img> with overlay */
+
+/* Rooms Section - WITH IMAGE SUPPORT */
+.rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.room-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+.room-image {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+/* Individual room backgrounds */
+.deluxe-ocean-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                      url('images/rooms/deluxe-ocean.jpg');
+}
+
+.executive-suite-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                      url('images/rooms/executive-suite.jpg');
+}
+
+.presidential-suite-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                      url('images/rooms/presidential-suite.jpg');
+}
+
+/* Fallback backgrounds for rooms */
+.deluxe-ocean-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    z-index: -1;
+}
+
+.executive-suite-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    z-index: -1;
+}
+
+.presidential-suite-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    z-index: -1;
+}
+
+.room-content {
+    padding: 1.5rem;
+}
+
+.room-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.room-price {
+    font-size: 1.5rem;
+    color: #d4af37;
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+/* Facilities Section */
+.facilities {
+    background: #f8f9fa;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.facility-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.facility-card:hover {
+    transform: translateY(-3px);
+}
+
+.facility-icon {
+    font-size: 3rem;
+    color: #d4af37;
+    margin-bottom: 1rem;
+}
+
+.facility-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+/* Gallery Section - WITH IMAGE SUPPORT */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: block;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Remove overlay for img tiles */
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Image element fills tile */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Dark overlay for readability */
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.15));
+    transition: background 0.3s ease;
+}
+
+.gallery-item:hover::after {
+    background: linear-gradient(to top, rgba(0,0,0,0.25), rgba(0,0,0,0.05));
+}
+
+/* Caption styling */
+.gallery-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.6rem 0.8rem;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    z-index: 1;
+}
+
+/* Remove text overlay rules for background-based tiles */
+
+/* Individual gallery backgrounds */
+.gallery-lobby { 
+    background-image: url('images/gallery/lobby.jpg');
+}
+
+.gallery-restaurant { 
+    background-image: url('images/gallery/restaurant.jpg');
+}
+
+.gallery-pool { 
+    background-image: url('images/gallery/pool.jpg');
+}
+
+.gallery-spa { 
+    background-image: url('images/gallery/spa.jpg');
+}
+
+.gallery-suite { 
+    background-image: url('images/gallery/suite.jpg');
+}
+
+.gallery-beach { 
+    background-image: url('images/gallery/beach.jpg');
+}
+
+.gallery-terrace { 
+    background-image: url('images/gallery/terrace.jpg');
+}
+
+.gallery-conference { 
+    background-image: url('images/gallery/conference.jpg');
+}
+
+/* Fallback gradients for gallery items */
+.gallery-lobby::after { background: linear-gradient(45deg, #f093fb, #f5576c); }
+.gallery-restaurant::after { background: linear-gradient(45deg, #667eea, #764ba2); }
+.gallery-pool::after { background: linear-gradient(45deg, #4facfe, #00f2fe); }
+.gallery-spa::after { background: linear-gradient(45deg, #43e97b, #38f9d7); }
+.gallery-suite::after { background: linear-gradient(45deg, #fa709a, #fee140); }
+.gallery-beach::after { background: linear-gradient(45deg, #a8edea, #fed6e3); }
+.gallery-terrace::after { background: linear-gradient(45deg, #ffecd2, #fcb69f); }
+.gallery-conference::after { background: linear-gradient(45deg, #d299c2, #fef9d7); }
+
+.gallery-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 10px;
+    z-index: -1;
+}
+
+/* Contact Section */
+.contact {
+    background: #f8f9fa;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #d4af37;
+    margin-right: 1rem;
+    width: 30px;
+}
+
+.booking-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.map-placeholder {
+    height: 300px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: #d4af37;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #d4af37;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .about-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+
+    .rooms-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .facilities-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* WhatsApp Button Styling */
+.whatsapp-btn {
+    background: #25d366;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.whatsapp-btn:hover {
+    background: #128c7e;
+    transform: translateY(-2px);
+}
